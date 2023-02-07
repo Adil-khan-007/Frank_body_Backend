@@ -15,10 +15,9 @@ const ProductSchema = new mongoose.Schema({
 
 
   const UserSchema = new mongoose.Schema({
-    name : String,
+    fname : String,
+    lname : String,
     email : String,
-    gender : String,
-    age : Number,
     password : String,
 },
 {

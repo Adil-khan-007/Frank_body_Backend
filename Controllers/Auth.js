@@ -3,15 +3,15 @@ const jwt = require("jsonwebtoken");
 const { UserModel } = require("../configs/Model");
 
 const generateToken = (user)=>{
-    const {email,name,age} = user;
-    return jwt.sign({email,name,age},"mynameiskingkhan");
+    const {email,fname,lname} = user;
+    return jwt.sign({email,fname,lname},"mynameiskingkhan");
 }
 
 const register = async (req,res)=>{
     try{
-        const {email,password,name,age} = req.body;
+        const {email,password,fname,lname} = req.body;
 
-    if(!email || !password || !name){
+    if(!email || !password || !fname){
        return res.status(500).send({message : "name, email and password are mandatory"})
     }
 
@@ -21,7 +21,7 @@ const register = async (req,res)=>{
        return res.status(404).send({message : "User with this email already exist"})
     }
 
-    const user = await UserModel.create({name,email,password,age});
+    const user = await UserModel.create({fname,lname,email,password});
 
       res.send({message : "Registration Succesfully"})
     }
@@ -46,11 +46,11 @@ const login = async (req,res)=>{
     }
      
     const token = generateToken(user);
-    const {name,age} = user
+    const {fname,lname} = user
 
     return res.send({
         token : token,
-        data : {name,age,email}
+        data : {fname,lname,email}
     })
 
     }
