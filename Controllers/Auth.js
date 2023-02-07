@@ -1,4 +1,3 @@
-
 const jwt = require("jsonwebtoken");
 const { UserModel } = require("../configs/Model");
 
@@ -28,8 +27,8 @@ const register = async (req,res)=>{
     catch(err){
        return res.status(500).send({message : "Something went wrong"} )
     }
-
 }
+
 
 const login = async (req,res)=>{
     try{
