@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-const connectDatabase = mongoose.connect("mongodb+srv://grocery:grocery_007@cluster0.r8m0k0i.mongodb.net/frankBody?retryWrites=true&w=majority");
+const connectDatabase = mongoose.connect(process.env.MONGODB);
 
 module.exports = connectDatabase;
 
