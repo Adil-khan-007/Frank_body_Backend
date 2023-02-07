@@ -1,10 +1,10 @@
-// const express = require("express");
-// const { register, login } = require("../Controllers/Auth");
+const express = require("express");
+const { register, login } = require("../Controllers/Auth");
 
-// const AuthRouter = express.Router();
+const AuthRouter = express.Router();
 
-// AuthRouter.post("/signup",register);
+AuthRouter.post("/signup",register);
 
-// AuthRouter.post("/login",login);
+AuthRouter.post("/login",login);
 
-// module.exports = AuthRouter;
+module.exports = AuthRouter;
